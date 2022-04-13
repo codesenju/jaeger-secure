@@ -25,4 +25,4 @@ docker-compose up -d
 
 ## Set the password:
 ![password](media/password.png)
-## Go to [localhost:16686](localhost:16686) and login as the jaeger user you cerated earlier.
+## Go to [localhost:16686](localhost:16686/) and login as the jaeger user you created earlier.
