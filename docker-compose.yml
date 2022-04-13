@@ -17,6 +17,6 @@
       ports:
         - 16686:80
       networks:
-        - ansible_keycloak_net
+        - ${network}_keycloak_net
       volumes:
         - ./nginx/:/etc/nginx/conf.d/
