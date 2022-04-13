@@ -1,0 +1,22 @@
+  version: "3"
+  networks:
+    ansible_keycloak_net:
+      external: true
+  services:
+    jaeger:
+      image: jaegertracing/all-in-one:1.32
+      environment:
+        COLLECTOR_ZIPKIN_HOST_PORT: ":9411"
+      networks:
+        - ansible_keycloak_net
+    jaeger-proxy:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: jaeger-proxy
+      ports:
+        - 16686:80
+      networks:
+        - ansible_keycloak_net
+      volumes:
+        - ./nginx/:/etc/nginx/conf.d/
